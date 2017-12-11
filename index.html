@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>祝福贺卡</title>
+<script>
+//计算根节点HTML的字体大小
+function resizeRoot(width){
+	var deviceWidth = document.documentElement.clientWidth,
+		num = width,
+		num1 = num / 100;
+	if(deviceWidth > num){
+		deviceWidth = num;	
+	}
+	document.documentElement.style.fontSize = deviceWidth / num1 + "px";
+}
+//根节点HTML的字体大小初始化
+resizeRoot(750);
+window.onresize = function(){
+	resizeRoot(750);
+};
+</script>
+<link rel="stylesheet" href="css/bless.css">
+</head>
+<body ontouchmove="event.preventDefault()">
+
+<section class="page2">
+	<div class="bless bless1">
+        <div class="avatar"><img src="images/avatar.jpg" alt=""></div>
+		<img src="images/bg.jpg" alt="" class="bless_bg" id="bless_bg">
+		<div id="bless_txt">
+			<p class="point"><label>我在：</label><input type="text" placeholder="填写城市" class="pointtxt" value="深圳"></p>
+			<p class="bless_msg">
+                <textarea type="text" name="luck" id="luck" class="luck" placeholder="写些祝福语吧(150字以内)" maxlength="150"></textarea>
+            </p>
+            <p class="form-author">
+                <span>我是: </span><input type="text" name="author" id="author" class="author" value="白山羊">
+            </p>
+		</div>			
+		<img src="images/qrcode.png" alt="" class="qrcode">
+	</div>
+	<div class="bless_ctrl">
+        <button class="save">点击生成贺卡</button>
+	</div>
+</section>
+<section class="page3">
+	<div class="bless bless2">
+		<img src="images/bg2.jpg" alt="" class="bless_bg" id="bless_bg1">		
+	</div>
+	<img src="images/save.png" alt="" class="save_tip">
+</section>
+<canvas id="myCanvas" style="display:none">您的浏览器不支持canvas</canvas>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch-0.2.14.min.js"></script>
+<script src="luck.js"></script>
+</body>
+</html>
